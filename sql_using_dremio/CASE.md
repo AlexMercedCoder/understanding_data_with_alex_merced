@@ -1,7 +1,7 @@
 ```sql
 -- Create a table named 'destinations'
 CREATE TABLE destinations (
-    id INTEGER PRIMARY KEY,
+    id INTEGER,
     name VARCHAR,
     category VARCHAR
 );
@@ -10,7 +10,7 @@ CREATE TABLE destinations (
 INSERT INTO destinations (id, name, category) VALUES
 (1, 'Eiffel Tower', 'Attraction'),
 (2, 'The Ritz', 'Hotels'),
-(3, 'Joe’s Diner', 'Restaurants'),
+(3, 'Joes Diner', 'Restaurants'),
 (4, 'Central Park', 'Parks'),
 (5, 'Grand Hotel', 'Hotels');
 
