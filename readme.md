@@ -8,3 +8,4 @@
 
 ### Other Links
 - [REPL for Intro to SQL](https://replit.com/@AlexMercedCoder/SQL2024)
+- [Spreadsheet from Data Modeling Lessons](https://docs.google.com/spreadsheets/d/1bV3ORdo-CVsI-ZxPzOKvfPb4_ZB6nTfCOurZPPW8ILw/edit?usp=sharing)
