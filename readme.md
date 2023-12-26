@@ -10,3 +10,4 @@
 - [REPL for Intro to SQL](https://replit.com/@AlexMercedCoder/SQL2024)
 - [Spreadsheet from Data Modeling Lessons](https://docs.google.com/spreadsheets/d/1bV3ORdo-CVsI-ZxPzOKvfPb4_ZB6nTfCOurZPPW8ILw/edit?usp=sharing)
 - [Quick Guides from Dremio Repo](https://github.com/developer-advocacy-dremio/quick-guides-from-dremio)
+- [Data Lakehouse on your laptop blog](https://dev.to/alexmercedcoder/data-engineering-create-a-apache-iceberg-based-data-lakehouse-on-your-laptop-41a8)
