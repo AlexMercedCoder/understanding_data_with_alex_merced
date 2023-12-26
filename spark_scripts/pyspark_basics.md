@@ -1,36 +1,37 @@
 ```py
+import pyspark
 from pyspark.sql import SparkSession
 from pyspark.sql import Row
 
-# Initialize a SparkSession
-spark = SparkSession.builder \
-    .appName("PySpark SQL and DataFrame API Example") \
-    .getOrCreate()
+conf = (
+    pyspark.SparkConf()
+        .setAppName('iceberg_with_file_system')
+  		#packages
+        .set('spark.jars.packages', 'org.apache.iceberg:iceberg-spark-runtime-3.4_2.12:1.4.2')
+  		#SQL Extensions
+        .set('spark.sql.extensions', 'org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions')
+  		#Configuring Catalog
+        .set('spark.sql.catalog.iceberg', 'org.apache.iceberg.spark.SparkCatalog')
+        .set('spark.sql.catalog.iceberg.type', 'hadoop')
+        .set('spark.sql.catalog.iceberg.warehouse', 'iceberg-warehouse')
+)
 
-# Create a simple DataFrame
-data = [Row(name="Alice", age=25),
-        Row(name="Bob", age=30),
-        Row(name="Charlie", age=35)]
+## Start Spark Session
+spark = SparkSession.builder.config(conf=conf).getOrCreate()
+print("Spark Running")
 
-df = spark.createDataFrame(data)
+## Run a Query
+spark.sql("CREATE TABLE IF NOT EXISTS iceberg.names (name STRING) USING iceberg;").show()
 
-# Show the DataFrame
-print("DataFrame:")
-df.show()
+## Insert a record with SQL
+spark.sql("INSERT INTO iceberg.names VALUES ('Alex Merced')")
 
-# Writing DataFrame to a temporary view
-df.createOrReplaceTempView("people")
+## Insert a record with dataframe api
+df = spark.createDataFrame([Row(name="Tony Merced")])
+df.writeTo("iceberg.names").append()
 
-# Using SQL API to query the DataFrame
-print("SQL API output:")
-spark.sql("SELECT * FROM people WHERE age > 28").show()
-
-# Alternatively, using DataFrame API to perform the same query
-print("DataFrame API output:")
-df.filter(df.age > 28).show()
-
-# Stop the SparkSession
-spark.stop()
+## Querying the table
+spark.sql("SELECT * FROM iceberg.names;").show()
 ```
 
 ## Explanation
