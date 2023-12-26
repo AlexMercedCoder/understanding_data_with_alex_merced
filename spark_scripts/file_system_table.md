@@ -3,11 +3,11 @@
 ```py
 import pyspark
 from pyspark.sql import SparkSession
-import os
+from pyspark.sql import Row
 
 conf = (
     pyspark.SparkConf()
-        .setAppName('app_name')
+        .setAppName('iceberg_with_file_system')
   		#packages
         .set('spark.jars.packages', 'org.apache.iceberg:iceberg-spark-runtime-3.4_2.12:1.4.2')
   		#SQL Extensions
@@ -23,7 +23,17 @@ spark = SparkSession.builder.config(conf=conf).getOrCreate()
 print("Spark Running")
 
 ## Run a Query
-spark.sql("CREATE TABLE iceberg.names (name STRING) USING iceberg;").show()
+spark.sql("CREATE TABLE IF NOT EXISTS iceberg.names (name STRING) USING iceberg;").show()
+
+## Insert a record with SQL
+spark.sql("INSERT INTO iceberg.names VALUES ('Alex Merced')")
+
+## Insert a record with dataframe api
+df = spark.createDataFrame([Row(name="Tony Merced")])
+df.writeTo("iceberg.names").append()
+
+## Querying the table
+spark.sql("SELECT * FROM iceberg.names;").show()
 ```
 
 The provided Python script is for setting up and using Apache Spark with Iceberg, an open-source table format for huge analytic datasets.
