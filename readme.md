@@ -17,6 +17,8 @@
 - [Apache Spark 101](https://www.youtube.com/playlist?list=PLsLAVBjQJO0rELsg9N8Agoq9Jg8wUUV_G)
 - [Apache Iceberg Lakehouse Engineering](https://www.youtube.com/playlist?list=PLsLAVBjQJO0rELsg9N8Agoq9Jg8wUUV_G)
 - [Understanding Data Optimization](https://www.youtube.com/playlist?list=PLsLAVBjQJO0rdNwoyFOTDzGhDcENESgg6)
+- [Intro to Python for Data People](https://www.youtube.com/playlist?list=PLsLAVBjQJO0pXBqhlD59MYtxl0E4XRj2J)
+- [Computer Science](https://www.youtube.com/playlist?list=PLY6oTPmKnKbbfwjU1ToZlUWCinxmFqlIp)
 
 #### Slack Community Invites
 - [Data Lakehouse Hub](https://join.slack.com/t/thedatalakehousehub/shared_invite/zt-274yc8sza-mI2zhCW8LGkOh1uxuf8T5Q)
