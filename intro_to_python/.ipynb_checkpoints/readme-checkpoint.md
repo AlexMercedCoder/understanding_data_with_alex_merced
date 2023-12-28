@@ -79,11 +79,3 @@ conda config --add channels conda-forge
 ```bash
 conda install polars seaborn
 ```
-
-#### If using pip
-
-Just install
-
-```
-pip install seaborn polars
-```
