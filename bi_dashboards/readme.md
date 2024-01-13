@@ -1,0 +1,1 @@
+[Details on Setup](https://github.com/developer-advocacy-dremio/quick-guides-from-dremio/blob/main/guides/superset-dremio.md)
